@@ -106,6 +106,11 @@ namespace SullivanBankAccount
                 //Print the error message to the Results box
                 txtResults.Text = (exc.Message);
             }
+            finally
+            {
+                txtAmount.Clear();
+                rbDeposit.Checked = true;
+            }
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -146,7 +151,7 @@ namespace SullivanBankAccount
             }
             catch (Exception exc)
             {
-
+                MessageBox.Show(exc.Message, "Verification Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
