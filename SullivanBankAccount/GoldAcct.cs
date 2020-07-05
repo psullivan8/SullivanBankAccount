@@ -31,13 +31,15 @@ namespace SullivanBankAccount
                 //Deduct $1.00 if balance is less than $1,000.00
                 //The fee is based on the balance prior to the deposit
                 amount -= 1.00M;
-                Balance += amount;
+              //  Balance += amount;
             }
             else if(Balance > 5000M)
             {
                 Balance += Balance * (decimal)Interest/100;
-                Balance += amount;
+                //Balance += amount;
             }
+            //TODO:  Now use the base class functionality
+            base.Deposit(amount);
         }
         public override void Withdraw(decimal amount)
         {
@@ -49,18 +51,20 @@ namespace SullivanBankAccount
             {
                 //Now we have a new amount += 2.50M
                 amount += 2.50M;
-                Balance -= amount;
+              //  Balance -= amount;
             }
+            //TODO:  Now use the base class functionality
+            base.Withdraw(amount);
             //Check if the amount will overdraw the account
-            else if (amount > Balance)
-            {
-                //if so, 
-                throw new InsufficientFundsException();
-            }
-            else
-            {
-                Balance -= amount;
-            }
+            //else if (amount > Balance)
+            //{
+            //    //if so, 
+            //    throw new InsufficientFundsException();
+            //}
+            //else
+            //{
+            //    Balance -= amount;
+            //}
         }
 
         public override string ToString()

@@ -13,6 +13,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//TODO:  You are doing all of the deposit/withdraw -5
+//TODO:  transactions in the derived classes.  The inheritance idea is to 
+//TODO:  let the base class, which has already the "basic" functionality do it.
+//TODO:  The only things calculated by the derived classes are the fees.
+//TODO:  That is why you keep on throwing the exceptions in each class.
+//TODO:  You never get to the base class to let it throw it.
+
+    //TODO: score 95/100
+
 namespace SullivanBankAccount
 {
     public partial class Form1 : Form
@@ -101,6 +110,8 @@ namespace SullivanBankAccount
                     txtResults.Text = accounts[index].ToString();
                 }
             }
+    //TODO:  catch the exception you created and threw! then catch the rest
+    //TODO: with Exception
             catch(Exception exc)
             {
                 //Print the error message to the Results box

@@ -38,7 +38,9 @@ namespace SullivanBankAccount
             }
             //The fee is based on the balance prior to the deposit
             //Add deposit amount to balance
-            Balance += amount;
+            //TODO:  Now use the base class functionality
+            base.Deposit(amount);
+            //Balance += amount;
         }
         public override void Withdraw(decimal amount)
         {
@@ -46,16 +48,18 @@ namespace SullivanBankAccount
             //Add $2.50 as bank fee for withdrawal
             //Now we have a new amount += 2.50M
             amount += 2.50M;
+            //TODO:  Now use the base class functionality
+            base.Withdraw(amount);
             //Check if the balance will overdraw the account
-            if (amount > Balance)
-            {
-                //if so, 
-                throw new InsufficientFundsException();
-            }
-            else
-            {
-                base.Withdraw(amount);
-            }
+            //if (amount > Balance)
+            //{
+            //    //if so, 
+            //    throw new InsufficientFundsException();
+            //}
+            //else
+            //{
+            //    base.Withdraw(amount);
+            //}
         }
 
         public override string ToString()
